@@ -1,0 +1,40 @@
+{
+    "name": "bit-ui-components",
+    "version": "1.0.0",
+    "description": "UI components library",
+    "main": "webpack.config.js",
+    "scripts": {
+        "build": "webpack --mode production",
+        "start": "start-storybook -p 3000 --ci"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jpbelo/bit-ui-components.git"
+    },
+    "author": "João Belo <joaobelo.dev@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jpbelo/bit-ui-components/issues"
+    },
+    "homepage": "https://github.com/jpbelo/bit-ui-components#readme",
+    "devDependencies": {
+        "@babel/core": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/preset-react": "^7.0.0",
+        "@storybook/addon-actions": "^5.0.11",
+        "@storybook/react": "^5.0.11",
+        "babel-loader": "^8.0.6",
+        "webpack": "^4.31.0",
+        "webpack-cli": "^3.3.2"
+    },
+    "dependencies": {
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "styled-components": "^4.2.0"
+    },
+    "bit": {
+        "env": {},
+        "componentsDefaultDirectory": "components/{name}",
+        "packageManager": "npm"
+    }
+}
