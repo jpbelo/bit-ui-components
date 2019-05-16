@@ -2,7 +2,7 @@
     "name": "bit-ui-components",
     "version": "1.0.0",
     "description": "UI components library",
-    "main": "webpack.config.js",
+    "main": "dist/ui-components.js",
     "scripts": {
         "build": "webpack --mode production",
         "start": "start-storybook -p 3000 --ci"
@@ -33,7 +33,9 @@
         "styled-components": "^4.2.0"
     },
     "bit": {
-        "env": {},
+        "env": {
+          "compiler": "bit.envs/compilers/react@6.0.0"
+        },
         "componentsDefaultDirectory": "src/components/{name}",
         "packageManager": "npm"
     }
