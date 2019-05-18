@@ -4,5 +4,5 @@ import { storiesOf } from '@storybook/react'
 import StarRating from '../components/StarRating'
 
 storiesOf('StarRating')
-  .add('2.4', () => <StarRating rating={2.4} />)
-  .add('4', () => <StarRating rating={4} />)
+  .add('keep myRate', () => <StarRating keepVote={true} rating={2.4} />)
+  .add('keep rating', () => <StarRating rating={4} />)

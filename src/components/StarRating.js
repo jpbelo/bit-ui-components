@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -7,9 +7,19 @@ const StarsContainer = styled.div`
   display: inline-block;
   pointer-events: auto;
   &:not(:hover) {
-    background: ${props => `linear-gradient(90deg, #fff000 ${props.rating * 20}%, #333 ${props.rating * 20}%);`};
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${({ keepVote, rating, myRate }) =>
+      keepVote && myRate !== null
+        ? `
+      color: #fff000;
+      span:nth-child(${myRate}) ~ span {
+        color: #333;
+      }
+    `
+        : `
+      background: linear-gradient(90deg, #fff000 ${rating * 20}%, #333 ${rating * 20}%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    `}
   }
   &:hover {
     color: #fff000;
@@ -47,22 +57,20 @@ class StarRating extends Component {
 
   render() {
     return (
-      <Fragment>
-        <StarsContainer {...this.props}>
-          <Star onClick={() => this.setMyRating(1)} />
-          <Star onClick={() => this.setMyRating(2)} />
-          <Star onClick={() => this.setMyRating(3)} />
-          <Star onClick={() => this.setMyRating(4)} />
-          <Star onClick={() => this.setMyRating(5)} />
-        </StarsContainer>
-        <p>my rating: {this.state.myRate ? this.state.myRate : 'not set'}</p>
-      </Fragment>
+      <StarsContainer {...this.props} myRate={this.state.myRate}>
+        <Star onClick={() => this.setMyRating(1)} />
+        <Star onClick={() => this.setMyRating(2)} />
+        <Star onClick={() => this.setMyRating(3)} />
+        <Star onClick={() => this.setMyRating(4)} />
+        <Star onClick={() => this.setMyRating(5)} />
+      </StarsContainer>
     )
   }
 }
 
 StarRating.propTypes = {
   rating: PropTypes.number.isRequired,
+  keepVote: PropTypes.bool.isRequired,
 }
 
 export default StarRating
