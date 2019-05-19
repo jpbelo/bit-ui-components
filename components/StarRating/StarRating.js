@@ -6,25 +6,28 @@ const StarsContainer = styled.div`
   font-size: 80px;
   display: inline-block;
   pointer-events: auto;
+  & > span::before {
+    content: "${props => props.starText}";
+  }
   &:not(:hover) {
-    ${({ keepVote, rating, myRate }) =>
+    ${({ keepVote, rating, myRate, colorPrimary, colorSecondary }) =>
       keepVote && myRate !== null
         ? `
-      color: #fff000;
+      color: ${colorPrimary};
       span:nth-child(${myRate}) ~ span {
-        color: #333;
+        color: ${colorSecondary};
       }
     `
         : `
-      background: linear-gradient(90deg, #fff000 ${rating * 20}%, #333 ${rating * 20}%);
+      background: linear-gradient(90deg, ${colorPrimary} ${rating * 20}%, ${colorSecondary} ${rating * 20}%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     `}
   }
   &:hover {
-    color: #fff000;
+    color: ${props => props.colorPrimary};
     span:hover ~ span {
-      color: #333;
+      color: ${props => props.colorSecondary};
     }
   }
 `
@@ -35,9 +38,6 @@ const Star = styled.span`
   outline: none;
   font-size: 80px;
   cursor: pointer;
-  &::before {
-    content: '★';
-  }
 `
 
 class StarRating extends Component {
@@ -71,10 +71,16 @@ class StarRating extends Component {
 StarRating.propTypes = {
   rating: PropTypes.number.isRequired,
   keepVote: PropTypes.bool,
+  starText: PropTypes.string,
+  colorPrimary: PropTypes.string,
+  colorSecondary: PropTypes.string,
 }
 
 StarRating.defaultProps = {
   keepVote: false,
+  starText: '★',
+  colorPrimary: '#fff000',
+  colorSecondary: '#333',
 }
 
 export default StarRating
