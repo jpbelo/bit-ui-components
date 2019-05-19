@@ -70,7 +70,11 @@ class StarRating extends Component {
 
 StarRating.propTypes = {
   rating: PropTypes.number.isRequired,
-  keepVote: PropTypes.bool.isRequired,
+  keepVote: PropTypes.bool,
+}
+
+StarRating.defaultProps = {
+  keepVote: false,
 }
 
 export default StarRating
