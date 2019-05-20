@@ -83,4 +83,4 @@ StarRating.defaultProps = {
   colorSecondary: '#333',
 }
 
-export default StarRating
+export default StarRating;

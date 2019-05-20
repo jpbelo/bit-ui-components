@@ -1,3 +1,6 @@
-test('this needs to be prettier.', () => {
-  expect(4).toBe(4)
+test('ugly', () => {
+expect(4).toBe(4)
+})
+test('failing', () => {
+    expect(4).toBe(5);
 });
