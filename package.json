@@ -5,7 +5,8 @@
   "main": "dist/ui-components.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "start-storybook -p 3000 --ci"
+    "start": "start-storybook -p 3000 --ci",
+    "pretty": "prettier --write components/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,8 @@
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "babel-loader": "^8.0.6",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
     "prettier": "^1.17.1",
     "storybook-addon-jsx": "^7.1.2",
     "webpack": "^4.31.0",
@@ -34,6 +37,17 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "npm run pretty",
+      "git add"
+    ]
   },
   "bit": {
     "env": {
