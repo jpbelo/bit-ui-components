@@ -7,7 +7,8 @@
     "start": "start-storybook -p 3000 --ci",
     "pretty": "prettier --write components/**/*.js",
     "test": "jest",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "generate": "generact"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "babel-loader": "^8.0.6",
+    "generact": "^0.4.0",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lint-staged": "^8.1.7",
