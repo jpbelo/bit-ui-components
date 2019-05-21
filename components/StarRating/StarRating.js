@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import 'sanitize.css'
 
 const StarsContainer = styled.div`
   font-size: 80px;
