@@ -4,12 +4,12 @@
     "joaobelo.ui-components/star-rating@0.0.7": {
         "files": [
             {
-                "relativePath": "components/StarRating/StarRating.js",
+                "relativePath": "src/components/StarRating/StarRating.js",
                 "test": false,
                 "name": "StarRating.js"
             }
         ],
-        "mainFile": "components/StarRating/StarRating.js",
+        "mainFile": "src/components/StarRating/StarRating.js",
         "origin": "AUTHORED",
         "exported": true
     },
