@@ -6,14 +6,21 @@ import 'sanitize.css'
 const Container = styled.a`
   display: inline-block;
   width: 400px;
-  padding: 20px;
-  border: 1px solid #333;
+  border-radius: 14px;
+  box-shadow: 0 0 23px #ccc;
+  transition: box-shadow 0.3s ease-in-out;
+  overflow: hidden;
   &:hover {
-    border: 1px solid #999;
+    box-shadow: 0 0 23px #aaa;
   }
   & > img {
     width: 100%;
   }
+`
+
+const DescriptionContainer = styled.div`
+  width: 100%;
+  padding: 20px;
 `
 
 class ProductCard extends Component {
@@ -22,10 +29,12 @@ class ProductCard extends Component {
     return (
       <Container href={url} target="_blank" rel="noopener">
         <img src={images.cover} alt={name} />
-        <p>{name}</p>
-        <p>
-          {currency} {price}
-        </p>
+        <DescriptionContainer>
+          <p>{name}</p>
+          <p>
+            {currency} {price}
+          </p>
+        </DescriptionContainer>
       </Container>
     )
   }
